@@ -1,0 +1,17 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/master.swiftdeps"
+  },
+  "/Users/aryanrogye/Code/Projects/ComfyCalendar/Sources/ComfyCalendar/ComfyCalendar.swift": {
+    "dependencies": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/ComfyCalendar.d",
+    "object": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/ComfyCalendar.swift.o",
+    "swiftmodule": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/ComfyCalendar~partial.swiftmodule",
+    "swift-dependencies": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/ComfyCalendar.swiftdeps"
+  },
+  "/Users/aryanrogye/Code/Projects/ComfyCalendar/Sources/ComfyCalendar/Views/CalendarView.swift": {
+    "dependencies": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/CalendarView.d",
+    "object": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/CalendarView.swift.o",
+    "swiftmodule": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/CalendarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/CalendarView.swiftdeps"
+  }
+}
