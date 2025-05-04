@@ -1,4 +1,0 @@
-module ComfyCalendar {
-    header "/Users/aryanrogye/Code/Projects/ComfyCalendar/.build/arm64-apple-macosx/debug/ComfyCalendar.build/ComfyCalendar-Swift.h"
-    requires objc
-}
