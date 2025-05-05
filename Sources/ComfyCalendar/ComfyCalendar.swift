@@ -35,15 +35,13 @@ public struct ComfyCalendarView: View {
         case .showMonthly:
             CalendarMonthView(eventsByDay: eventsByDay)
         case .showWeekly:
-            CalendarWeekView()
+            CalendarWeekView(eventsByDay: eventsByDay)
         case .showDaily:
             CalendarDayView(date: Date(), reminders: reminders, isSelected: false , currentOption: .showDaily) {
                 // Action for daily view
             }
         }
     }
-    
-
 }
 
 struct CalendarMonthView: View {
@@ -106,29 +104,44 @@ struct CalendarWeekView: View {
     private let calendar = Calendar.current
     private let currentWeek: [Date]
     
-    // You’ll want to pass this in from ComfyCalendarView
-    var eventsByDay: [Date: [EKReminder]] = [:]
-
-    init() {
+    let eventsByDay: [Date: [EKReminder]]
+    
+    init(eventsByDay: [Date: [EKReminder]] = [:]) {
         self.currentWeek = Self.generateCurrentWeek()
+        self.eventsByDay = eventsByDay
     }
 
     var body: some View {
-        HStack(spacing: 8) {
-            ForEach(currentWeek, id: \.self) { date in
-                let reminders = eventsByDay[calendar.startOfDay(for: date)] ?? []
+        VStack(spacing: 4) {
+            // Weekday headers
+            HStack {
+                ForEach(currentWeek, id: \.self) { date in
+                    let weekday = calendar.shortWeekdaySymbols[calendar.component(.weekday, from: date) - 1]
+                    Text(weekday)
+                        .font(.caption2)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.secondary)
+                }
+            }
 
-                CalendarDayView(
-                    date: date,
-                    reminders: reminders,
-                    isSelected: calendar.isDate(date, inSameDayAs: selectedDate),
-                    currentOption: .showWeekly
-                ) {
-                    selectedDate = date
+            // Days of week
+            HStack(spacing: 8) {
+                ForEach(currentWeek, id: \.self) { date in
+                    let reminders = eventsByDay[calendar.startOfDay(for: date)] ?? []
+
+                    CalendarDayView(
+                        date: date,
+                        reminders: reminders,
+                        isSelected: calendar.isDate(date, inSameDayAs: selectedDate),
+                        currentOption: .showWeekly
+                    ) {
+                        selectedDate = date
+                    }
+                    .frame(maxWidth: .infinity)
                 }
             }
         }
-        .padding(.horizontal, 8)
+        .padding(.horizontal)
     }
 
     static func generateCurrentWeek() -> [Date] {
